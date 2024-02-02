@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hello World</title>
+</head>
+<body>
+
+    <h1>Hello from HTML</h1>
+
+    <div id="rootJS"></div>
+
+    <div id="root">Not rendered [Using React]</div>
+    
+  /////////////////////////////////////////////////////  
+    <script>
+        const heading = document.createElement("h1");
+        heading.innerHTML = "Hello from Java Script "
+        // heading.textContent = "Hello from JS"
+        const rootJS = document.getElementById("rootJS");
+        rootJS.appendChild(heading);
+    </script>
+
+/////////////////////////////////////////////////
+    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
+    <script>
+        const heading2 = React.createElement("h1",{id:"title",style:{color:"red"}},"Hello from react")
+        const root = ReactDOM.createRoot(document.getElementById("root")) 
+        root.render(heading2)       
+    </script>
+//////////////////////////////////////////////////
+</body>
+</html>
