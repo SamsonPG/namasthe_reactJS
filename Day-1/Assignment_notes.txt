@@ -1,0 +1,74 @@
+What is Emmet?
+Emmet is a plugin for text editors that allows for high-speed coding and editing of HTML and CSS. It enables developers to write HTML and CSS using abbreviations, which are then expanded into full-fledged code snippets. Emmet is particularly popular among web developers for its efficiency and speed.
+
+Difference between a Library and Framework?
+The main difference between a library and a framework lies in inversion of control. In a library, you call the code, while in a framework, the framework calls your code. With a library, you have more control over the flow of your application, while with a framework, the framework dictates the flow and provides a set structure for your application.
+
+What is CDN? Why do we use it?
+CDN stands for Content Delivery Network. It's a network of distributed servers that deliver web content to users based on their geographic location. CDNs help to improve website performance by reducing latency and increasing download speeds. They are used to efficiently deliver content like images, scripts, stylesheets, and other resources to users.
+
+Why is React known as React?
+React is called React because it revolves around the concept of reactive user interfaces. It focuses on efficiently updating and rendering components in response to changes in data or state. The name "React" reflects its core principle of reacting to data changes and updating the user interface accordingly.
+
+What is crossorigin in the script tag?
+The crossorigin attribute in the <script> tag is used when loading scripts from another domain. It specifies how the browser should handle requests to the script file when there are cross-origin requests. It can have values like "anonymous" or "use-credentials" to control whether cookies and authentication credentials are sent along with the request.
+
+What is the difference between React and ReactDOM?
+React is the core library for building user interfaces in React applications. ReactDOM is a separate package that provides DOM-specific methods that React uses to interact with the DOM. ReactDOM.render(), for example, is used to render React elements into the DOM.
+
+What is the difference between react.development.js and react.production.js files via CDN?
+The react.development.js file is meant for development purposes. It includes additional warnings and debugging features that help developers identify and fix issues during development. The react.production.js file, on the other hand, is optimized for production use. It excludes development-specific warnings and features to reduce file size and improve performance in production environments.
+
+What is async and defer?
+async and defer are attributes used with the <script> tag to control when and how scripts are executed.
+
+async: The script is downloaded asynchronously and executed as soon as it's available, without blocking the HTML parsing. However, the order of execution may not be guaranteed.
+defer: The script is downloaded asynchronously but is executed only after the HTML parsing is complete. Scripts with the defer attribute maintain their order of execution relative to each other and the document.
+
+Consider the following HTML document:
+
+html
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Async vs Defer Example</title>
+    <!-- Load external scripts asynchronously and defer their execution -->
+    <script src="script1.js" async></script>
+    <script src="script2.js" defer></script>
+</head>
+<body>
+    <h1>Async vs Defer Example</h1>
+    <p>Check the console to see the order of script execution.</p>
+</body>
+</html>
+
+In this example, we have two external JavaScript files: script1.js and script2.js. We've added the async attribute to the <script> tag loading script1.js and the defer attribute to the <script> tag loading script2.js.
+
+Here's what happens:
+
+When the browser encounters the <script> tag with the async attribute, it starts downloading script1.js immediately without blocking the HTML parsing. Once the script is downloaded, it is executed asynchronously, regardless of whether the HTML parsing is complete or not. This means that script1.js may execute before or after the document has finished parsing.
+
+When the browser encounters the <script> tag with the defer attribute, it also starts downloading script2.js immediately, but it defers the execution of the script until after the HTML parsing is complete. This ensures that script2.js is executed in the order it appears in the document and after the DOM has been fully parsed.
+
+Here are the contents of script1.js and script2.js for illustration:
+
+javascript
+
+// script1.js
+console.log('Script 1 is executed');
+
+// script2.js
+console.log('Script 2 is executed');
+In the console, you would typically see the following order of messages:
+
+
+
+Script 2 is executed
+Script 1 is executed
+
+
+This order reflects the behavior of the defer and async attributes. The script with defer is executed after the DOM is fully parsed, while the script with async might execute before or after the DOM is parsed, depending on its loading time.
+
