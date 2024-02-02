@@ -12,9 +12,10 @@
     <div id="rootJS"></div>
 
     <div id="root">Not rendered [Using React]</div>
-    
-  /////////////////////////////////////////////////////  
-    <script>
+
+/////////////////////////////////////////////////////
+
+    <script defer>
         const heading = document.createElement("h1");
         heading.innerHTML = "Hello from Java Script "
         // heading.textContent = "Hello from JS"
@@ -23,13 +24,21 @@
     </script>
 
 /////////////////////////////////////////////////
-    <script crossorigin src="https://unpkg.com/react@18/umd/react.development.js"></script>
-    <script crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-    <script>
+
+    <script defer crossorigin src="https://unpkg.com/react@18/umd/react.development.js" ></script>
+    <script defer crossorigin src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" ></script>
+    <script defer>
         const heading2 = React.createElement("h1",{id:"title",style:{color:"red"}},"Hello from react")
+        console.log(heading2);
         const root = ReactDOM.createRoot(document.getElementById("root")) 
-        root.render(heading2)       
+        
+        
+
+        root.render(heading2)   
+       
+        document.getElementById("root").innerHTML="this gonna change" 
     </script>
+
 //////////////////////////////////////////////////
 </body>
 </html>
