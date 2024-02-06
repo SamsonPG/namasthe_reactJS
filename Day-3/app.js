@@ -50,7 +50,7 @@ const HeaderComponent = ()=>{
             <img key="logo" src="logo.png" alt="logo"/>
             <input type="text" placeholder="Search..." />
             <h3 key="user">User</h3>
-           
+          
         </header>
     );
 }
