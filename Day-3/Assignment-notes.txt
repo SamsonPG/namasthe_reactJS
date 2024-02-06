@@ -1,0 +1,105 @@
+Topics
+JSX
+JSX is a syntax extension for JavaScript that allows us to write HTML-like code within JavaScript.
+It provides a more readable and concise way to create React elements and render them to the DOM.
+React.createElement vs JSX
+React.createElement is a method provided by React to create React elements programmatically using JavaScript objects.
+JSX is a syntactic sugar that simplifies the process of creating React elements by allowing developers to write HTML-like code directly in JavaScript.
+Benefits of JSX
+JSX improves code readability and maintainability by allowing developers to write declarative UI components.
+It enables developers to use familiar HTML syntax within JavaScript, making it easier to reason about the structure of UI components.
+JSX provides compile-time checks and better error messages, helping catch syntax errors early in the development process.
+Behind the Scenes of JSX
+JSX code is transpiled into standard JavaScript code by tools like Babel.
+Babel converts JSX syntax into React.createElement calls before it's executed by the JavaScript engine.
+This allows browsers to understand and render JSX code as regular JavaScript.
+Babel & Parcel role in JSX
+Babel is a JavaScript compiler that transforms JSX and other modern JavaScript features into backward-compatible code.
+Parcel is a web application bundler that can automatically compile JSX code using Babel and package all the necessary assets for deployment.
+Components
+Components are the building blocks of React applications, encapsulating UI elements and their behavior into reusable and composable units.
+Functional components are JavaScript functions that return JSX elements, while class components are ES6 classes that extend React.Component and have a render method.
+Functional Components
+Functional components are simple JavaScript functions that return JSX elements.
+They are stateless and pure, meaning they do not manage their own state or have lifecycle methods.
+Functional components are typically used for presentational or stateless components.
+Composing Components
+Composing components involves combining multiple smaller components to create more complex UI elements.
+This allows for a modular and reusable approach to building UIs, where each component is responsible for a specific piece of functionality or visual representation.
+Assignment
+What is JSX?
+JSX is a syntax extension for JavaScript that allows developers to write HTML-like code within JavaScript.
+Example:
+jsx
+Copy code
+const element = <h1>Hello, JSX!</h1>;
+Superpowers of JSX
+JSX improves code readability and maintainability by providing a more declarative syntax for creating UI components.
+It enables the use of JavaScript expressions within curly braces {} to dynamically generate content.
+JSX provides compile-time checks and better error messages, enhancing developer productivity and reducing bugs.
+Role of type attribute in script tag? What options can I use there?
+The type attribute in the script tag specifies the media type of the script resource.
+Common values for the type attribute include:
+"text/javascript": Indicates that the content of the script is JavaScript code.
+"module": Indicates that the script is a module script, which allows for better encapsulation and dependency management.
+{TitleComponent} vs {<TitleComponent/>} vs {<TitleComponent></TitleComponent>} in JSX
+{TitleComponent}: This syntax represents a reference to a component, which can be used as a variable or passed as a prop to another component.
+{<TitleComponent/>}: This syntax creates an instance of the TitleComponent component using JSX self-closing syntax.
+{<TitleComponent></TitleComponent>}: This syntax creates an instance of the TitleComponent component using JSX opening and closing tags.
+Coding Assignment
+jsx
+Copy code
+// Create a Nested header Element using React.createElement
+const nestedHeader = React.createElement('div', { className: 'title' },
+    React.createElement('h1', null, 'Heading 1'),
+    React.createElement('h2', null, 'Heading 2'),
+    React.createElement('h3', null, 'Heading 3')
+);
+
+// Create the same element using JSX
+const jsxNestedHeader = (
+    <div className="title">
+        <h1>Heading 1</h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+    </div>
+);
+
+// Create a functional component of the same with JSX
+const NestedHeaderComponent = () => (
+    <div className="title">
+        <h1>Heading 1</h1>
+        <h2>Heading 2</h2>
+        <h3>Heading 3</h3>
+    </div>
+);
+
+// Pass attributes into the tag in JSX
+const HeaderWithAttributes = ({ title }) => (
+    <div className="title">
+        <h1>{title}</h1>
+    </div>
+);
+
+// Composition of Component (Add a component inside another)
+const ParentComponent = () => (
+    <div>
+        <ChildComponent />
+    </div>
+);
+
+// Create a Header Component from scratch using Functional Components with JSX
+const HeaderComponent = () => (
+    <div className="header">
+        <img src="logo.png" alt="Logo" />
+        <input type="text" placeholder="Search..." />
+        <img src="user-icon.png" alt="User Icon" />
+    </div>
+);
+In the above code:
+
+We create nested header elements using React.createElement and JSX.
+We define a functional component using JSX syntax.
+We demonstrate passing attributes into JSX elements.
+We compose components by embedding one component inside another.
+We create a header component with a logo, search bar, and user icon.

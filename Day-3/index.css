@@ -1,0 +1,16 @@
+#title{
+    background-color: yellow;
+}
+
+#header{
+    background-color: black;
+    padding-left: 50px;
+    padding-right: 50px;
+    display: flex;
+    flex-direction:row;
+    align-items: center;
+    justify-content: space-between;
+    color:bisque; 
+ 
+}
+
