@@ -14,23 +14,23 @@ root.render(title);
 
 //////////////////////////////////////
 
-const Heading11 = (
+const heading11 = (
 <h1 id="heading11" key="heading11">
     heading11
     </h1>
 );
 const Heading22 = ()=> <h1 id="heading22" key="heading22">heading22</h1>
-const Heading33 = <h1 id="heading33" key="heading33">heading33</h1>
+const heading33 = <h1 id="heading33" key="heading33">heading33</h1>
 const Heading44 = ()=> <h1 id="heading44" key="heading44">heading44</h1>
 
 const Title22 = ()=>{
 return(
     <div>
-        {Heading11}
+        {heading11}
         {<Heading22/>}
         {<Heading44></Heading44>}
         <Heading22/>
-        {Heading33}
+        {heading33}
         <h1>hello</h1>
     </div>
 
