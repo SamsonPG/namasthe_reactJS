@@ -21,9 +21,7 @@ const Head =()=>{
 
 //////////////////////////////////////
 
-// https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/
 
-////////////////
 const restaurantList = 
 [
 
@@ -540,7 +538,7 @@ const restaurantList =
 const Card = ({ name,locality,areaName,cuisines,avgRating,cloudinaryImageId })=>{
 
     return(
-<div className="card" k>
+<div className="card">
     <div className="image-container">
     <img src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_660/"+cloudinaryImageId}></img>
     </div> 
