@@ -1,6 +1,7 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-
+import logo from "./img/logo.png";
+import user from "./img/user-icon.png"
 
 const heading1 = React.createElement("h1",{id:"heading 1",key:"heading1"},"Heading 1");
 const heading2 = React.createElement("h1",{id:"heading 2",key:"heading2"},"Heading 2");
@@ -47,7 +48,7 @@ const HeaderComponent = ()=>{
     return(
         <header key="header" id="header">
     
-            <img key="logo" src="logo.png" alt="logo"/>
+            <img key="logo" src={logo} alt="logo"/>
             <input type="text" placeholder="Search..." />
             <h3 key="user">User</h3>
           
