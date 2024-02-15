@@ -6,7 +6,7 @@ import Card from "./card.jsx";
 
 
 const Body = () => {
-    const [newRestaurantList, setNewRestaurantList] = useState(restaurantList);
+    const [restaurants, setRestaurants] = useState(restaurantList);
     const [searchText, setSearchText] = useState("");
 
     function filteredData(searchText, restaurantList) {
@@ -38,7 +38,7 @@ const Body = () => {
                 <button
                     onClick={() => {
                         const data = searchText ? filteredData(searchText, restaurantList) : restaurantList;
-                        setNewRestaurantList(data);
+                        setRestaurants(data);
                     }}
                 >
                     Search
@@ -46,7 +46,7 @@ const Body = () => {
             </div>
 
             <div className="cardContainer">
-                {newRestaurantList.map((restaurant) => {
+                {restaurants.map((restaurant) => {
                     return <Card {...restaurant.info} key={restaurant.info.id} />;
                 })}
             </div>
