@@ -51,7 +51,7 @@ if(!allRestaurants) return null;
             {filteredRestaurants.length === 0 ? (
                     <>{searchText ? <div>No restaurants found</div> : <Shimmer />}</>
                 ) : (
-                    filteredRestaurants.map((restaurant) => (
+                    filteredRestaurants.slice(0, 8).map((restaurant) => (
                         <Card {...restaurant.info} key={restaurant.info.id} />
                     ))
                 )}

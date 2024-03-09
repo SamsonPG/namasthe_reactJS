@@ -74,6 +74,36 @@
     overflow: hidden; /* Hide any overflow if the image is larger than the container */
   }
 
+
+  /* Shimmer Card*/
+
+.shimmer-card{
+    width: 260px ;
+    padding:15px;
+    margin:20px;
+    border-radius: 5px;
+    border: 1px solid black;
+    height:290px;
+    
+    
+}
+
+.shimmer-image-container {
+    border-radius: 5px;
+    width: 260px; /* Set a fixed width for the container */
+    height: 170px; /* Set a fixed height for the container */
+   background-color: lightgray;
+  }
+
+  .shimmer-text {
+    background-color: lightgray;
+    height: 16px; /* Adjust the height as needed */
+    width: 80%; /* Adjust the width as needed */
+    margin-bottom: 10px; /* Adjust spacing between text elements */
+    border-radius: 5px; /* Add rounded corners if needed */
+}
+
+
   /* Search */
 
   .searchbox{

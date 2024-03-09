@@ -1,9 +1,20 @@
 const Shimmer = ()=>{
     return(
         <>
-        <h1>Shimmer UI Loading...</h1>
-        </>
+        {Array(8).fill("").map((e=>
+            <div className="shimmer-card">
+            <div className="shimmer-image-container"></div>
+            <br/>
+            <h3 className="shimmer-text"></h3>
+            <h4 className="shimmer-text"></h4>
+            <h6 className="shimmer-text"></h6>
+            <h5 className="shimmer-text"></h5>
+            </div>
+        ))}
+          </>
     )
+  
 }
 
 export default Shimmer;
+
