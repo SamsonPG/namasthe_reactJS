@@ -1,0 +1,51 @@
+
+What is a Microservice?
+
+A microservice is a software architectural style that structures an application as a collection of loosely coupled services. Each service is independently deployable and scalable, focusing on a specific business capability and communicating with other services through well-defined APIs.
+What is Monolith architecture?
+
+Monolith architecture refers to a traditional approach where all components of an application are tightly integrated into a single codebase and deployed as a single unit. In a monolithic architecture, the entire application, including its user interface, business logic, and data access layers, is contained within a single codebase and deployment artifact.
+What is the difference between Monolith and Microservice?
+
+Monolith architecture involves building and deploying applications as a single, cohesive unit, while microservices architecture involves breaking down an application into smaller, independent services that communicate with each other through APIs. Monoliths are simpler to develop and deploy initially, while microservices offer scalability, flexibility, and better fault isolation.
+Why do we need a useEffect Hook?
+
+The useEffect hook in React allows developers to perform side effects in functional components. Side effects can include data fetching, subscription setup, or manually changing the DOM. useEffect is used to manage side effects in a declarative and consistent way across React components.
+What is Optional Chaining?
+
+Optional chaining is a feature introduced in JavaScript that allows developers to access properties of an object without worrying about whether the object or any of its nested properties are null or undefined. It uses the ?. syntax to safely access nested properties without causing errors if intermediate properties are null or undefined.
+What is Shimmer UI?
+
+Shimmer UI is a design pattern used to indicate loading or content placeholders in a user interface while data is being fetched or processed asynchronously. It typically involves showing animated placeholder shapes or gradients to indicate that content is loading, providing users with visual feedback that the application is working.
+What is the difference between JS expression and JS statement?
+
+JavaScript expressions produce a value, such as a variable, literal, or function call, and can be used anywhere a value is expected. JavaScript statements perform actions but do not produce a value. Examples of statements include variable declarations, loops, and conditionals.
+What is Conditional Rendering, explain with a code example
+
+Conditional rendering in React involves rendering different components or content based on certain conditions. Here's an example:
+jsx
+Copy code
+import React from 'react';
+
+function Greeting({ isLoggedIn }) {
+    return (
+        <div>
+            {isLoggedIn ? (
+                <h1>Welcome back!</h1>
+            ) : (
+                <h1>Please sign up or log in.</h1>
+            )}
+        </div>
+    );
+}
+
+export default Greeting;
+What is CORS?
+
+CORS (Cross-Origin Resource Sharing) is a security feature implemented by web browsers that restricts web pages from making requests to a different origin (domain, protocol, or port) than the one from which the page originated. CORS prevents malicious websites from making unauthorized requests to other websites.
+What is async and await?
+
+async and await are JavaScript keywords used to work with asynchronous code in a synchronous-like manner. The async keyword is used to define asynchronous functions, which return promises. The await keyword is used inside async functions to wait for promises to resolve before proceeding with code execution.
+What is the use of const json = await data.json(); in getRestaurants()?
+
+In the getRestaurants() function, await data.json() is used to asynchronously parse the response data from a fetch request as JSON. The data.json() method returns a promise that resolves to the JSON representation of the response body. The await keyword waits for this promise to resolve, and then assigns the parsed JSON data to the json constant for further processing.
