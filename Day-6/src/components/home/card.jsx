@@ -1,4 +1,4 @@
-import { cloudinaryLink } from "../constant.js";
+import { cloudinaryLink } from "../../constant.js";
 
 const Card = ({
   
