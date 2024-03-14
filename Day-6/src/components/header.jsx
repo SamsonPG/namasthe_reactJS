@@ -1,5 +1,6 @@
 import logo from "../../img/logo.png";
 import { useState } from "react";
+import {Link } from "react-router-dom";
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
