@@ -112,3 +112,8 @@
     align-items: center;
     justify-content:center ;
   }
+
+  href{
+    text-decoration: none;
+    color: black;
+  }

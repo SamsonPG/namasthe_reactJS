@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
 import Card from "./card.jsx";
 import Shimmer from "./shimmerui.jsx";
-
+import {defaultRestaurantsList} from "../../constant.js"
 const Home = () => {
-    const [allRestaurants, setAllRestaurants] = useState([]);
-    const [filteredRestaurants, setFilteredRestaurants] = useState([]);
+    const [allRestaurants, setAllRestaurants] = useState(defaultRestaurantsList);
+    const [filteredRestaurants, setFilteredRestaurants] = useState(defaultRestaurantsList);
     const [searchText, setSearchText] = useState("");
 
     useEffect(() => {
@@ -14,7 +14,7 @@ const Home = () => {
     async function getRestaurants() {
         const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=10.51600&lng=76.21570&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
         const json = await data.json();
-        const restaurants = json?.data?.cards[2]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
+        const restaurants = json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants || [];
         setAllRestaurants(restaurants);
         setFilteredRestaurants(restaurants);
     }
