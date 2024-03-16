@@ -2,6 +2,8 @@ import { useEffect, useState } from "react";
 import Card from "./card.jsx";
 import Shimmer from "./shimmerui.jsx";
 import {defaultRestaurantsList} from "../../constant.js"
+import {Link} from "react-router-dom"
+
 const Home = () => {
     const [allRestaurants, setAllRestaurants] = useState(defaultRestaurantsList);
     const [filteredRestaurants, setFilteredRestaurants] = useState(defaultRestaurantsList);
@@ -52,7 +54,7 @@ if(!allRestaurants) return (<><div>No restaurants found 😟</div></>);
                     <>{searchText ? <div>No restaurants found</div> : <Shimmer />}</>
                 ) : (
                     filteredRestaurants.slice(0, 8).map((restaurant) => (
-                        <Card {...restaurant.info} key={restaurant.info.id} />
+                    <Link to={"/restaurant/"+restaurant.info.id} key={restaurant.info.id} ><Card {...restaurant.info} /></Link> 
                     ))
                 )}
             </div>
