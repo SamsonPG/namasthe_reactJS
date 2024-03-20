@@ -5,8 +5,8 @@ import {defaultRestaurantsList} from "../../constant.js"
 import {Link} from "react-router-dom"
 
 const Home = () => {
-    const [allRestaurants, setAllRestaurants] = useState(defaultRestaurantsList);
-    const [filteredRestaurants, setFilteredRestaurants] = useState(defaultRestaurantsList);
+    const [allRestaurants, setAllRestaurants] = useState([]);
+    const [filteredRestaurants, setFilteredRestaurants] = useState([]);
     const [searchText, setSearchText] = useState("");
 
     useEffect(() => {
