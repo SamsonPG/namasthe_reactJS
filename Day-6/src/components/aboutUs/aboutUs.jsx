@@ -8,6 +8,7 @@ const AboutUs = ()=>{
         <h1>About Us</h1>
         <Outlet/>
         <ProfileClass name={"samson"} xyz="abc"/>
+        //////////////////
         <ProfileFunctional name={"samson"} xyz="abc"/>
         </>
     )
