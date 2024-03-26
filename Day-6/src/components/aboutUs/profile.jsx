@@ -7,8 +7,19 @@ const Profile = (props) => {
     console.log("rendering Functional Component");
 
     useEffect(()=>{
+
+      const timer = setInterval(()=>{
+        console.log("Hello OP From Use Effect")
+      },1000);
       console.log("useEffect");
-    })
+
+      return ()=>{
+        //this function i mean the return is called when this component will un mounting. so that the timer in the use effect will cleared when we switch pages.
+        clearInterval(timer);
+        console.log("useEffect Return");
+      };
+    },[])
+
 console.log("rendering Functional Component");
   return (
     <>
