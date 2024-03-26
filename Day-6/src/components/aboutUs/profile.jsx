@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 
 const Profile = (props) => {
 
@@ -6,6 +6,10 @@ const Profile = (props) => {
     const [count2,setCount2] = useState(0);
     console.log("rendering Functional Component");
 
+    useEffect(()=>{
+      console.log("useEffect");
+    })
+console.log("rendering Functional Component");
   return (
     <>
       <h2>This is from profile functional</h2>

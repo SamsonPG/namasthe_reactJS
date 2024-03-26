@@ -7,16 +7,37 @@ class ProfileClass extends React.Component {
             count: 0,
             count2: 0,
         }
-        console.log("Class Constructor");
+        this.state =
+        {
+            userInfo :{
+                name: "Dummy Name",
+                location: "Dummy Location",
+            },
+        };
+        console.log("Child - Class Constructor"+ this.props.name);
+    }
+
+
+   async componentDidMount(){
+      //API calls
+      const data = await fetch("https://api.github.com/users/samsonpg")
+      const json = await data.json();
+
+      this.setState({
+          userInfo: json
+      })
+      console.log("Child - Component Did Mounted"+ this.props.name);
     }
 
   render() {
 const  {count2} = this.state
-console.log("rendering Class Component");
+console.log("Child - rendering Class Component"+ this.props.name);
     return (
       <div>
         <h1>This is from profile class</h1>
         <h2>Name: {this.props.name} , {this.props.xyz}</h2>
+        <h2>Github Name: {this.state.userInfo.name} , Location : {this.state.userInfo.location}</h2>
+        <img src={this.state.userInfo.avatar_url}/>
         <h3>Count : {this.state.count}</h3>
         <h3>Count2 : {count2}</h3>
         <button onClick={()=>{
