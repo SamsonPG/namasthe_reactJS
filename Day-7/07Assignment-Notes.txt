@@ -1,0 +1,49 @@
+Various Ways to Add Images into Our App:
+Using the img Tag:
+The simplest way to add images is by using the img HTML tag.
+
+jsx
+Copy code
+<img src="/path/to/image.jpg" alt="Description" />
+Importing Images in JavaScript/JSX:
+You can import images directly into your JavaScript/JSX files using ES6 module syntax.
+
+jsx
+Copy code
+import imageSrc from './path/to/image.jpg';
+
+// Inside JSX
+<img src={imageSrc} alt="Description" />
+Using CSS Background Images:
+You can also set images as background images using CSS.
+
+jsx
+Copy code
+const divStyle = {
+    backgroundImage: `url('/path/to/image.jpg')`
+};
+
+// Inside JSX
+<div style={divStyle}></div>
+Base64-encoded Images:
+Convert the image to a Base64-encoded string and use it directly in your code.
+
+jsx
+Copy code
+const base64Image = 'data:image/jpeg;base64,/9j/4AAQSk...'; // Base64-encoded image string
+
+// Inside JSX
+<img src={base64Image} alt="Description" />
+What Happens if we do console.log(useState())?
+Calling console.log(useState()) will log an array with two elements: the state value and the setter function for updating the state. However, it's not recommended to log the state directly like this because it will also include the setter function, which might lead to confusion.
+
+useEffect Behavior Without Dependency Array:
+If you don't add a dependency array to useEffect, the effect will run after every render. This can lead to performance issues or unintended side effects if the effect updates state or performs heavy computations unnecessarily.
+
+Single Page Application (SPA):
+A Single Page Application (SPA) is a web application or website that dynamically updates the current web page without reloading the entire page from the server. SPAs use AJAX and HTML5 to create fluid and responsive web apps.
+
+Difference Between Client Side Routing and Server Side Routing:
+Client-Side Routing: In client-side routing, the routing logic is handled by JavaScript running in the browser. When a user clicks on a link, the routing is handled without making a request to the server. React Router is a popular library for client-side routing in React applications.
+
+Server-Side Routing: In server-side routing, each URL change results in a request being sent to the server, which then responds with the appropriate HTML content. This causes the entire page to reload. Frameworks like Express.js in Node.js or Django in Python are examples of server-side routing.

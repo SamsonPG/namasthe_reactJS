@@ -1,0 +1,175 @@
+Nested Routes in react-router-dom Configuration:
+
+To create nested routes in react-router-dom, you can nest <Route> components inside each other to define the hierarchy of your routes. Here's an example of how to create nested routes:
+
+jsx
+Copy code
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import ParentComponent from './ParentComponent';
+import ChildComponent from './ChildComponent';
+import GrandchildComponent from './GrandchildComponent';
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<ParentComponent />}>
+          <Route path="child" element={<ChildComponent />} />
+          <Route path="child/grandchild" element={<GrandchildComponent />} />
+        </Route>
+      </Routes>
+    </Router>
+  );
+}
+
+export default App;
+In this example, ParentComponent is the parent route, ChildComponent is a child route of ParentComponent, and GrandchildComponent is a child route of ChildComponent.
+
+createHashRouter and createMemoryRouter:
+
+createHashRouter: It uses the hash portion of the URL (e.g., /#/path) to keep the UI in sync with the URL. It's useful for applications that don't have server-side rendering or need to support old browsers.
+
+createMemoryRouter: It doesn't interact with the browser's URL but stores the location in memory. It's useful for testing and rendering components in non-browser environments like Node.js.
+
+Order of Life Cycle Method Calls in Class-Based Components:
+
+The order of lifecycle method calls in class-based components is as follows:
+
+constructor()
+componentDidMount()
+componentDidUpdate()
+componentWillUnmount()
+Why do we use componentDidMount()?
+
+componentDidMount() is used to perform actions after the component is mounted and rendered in the DOM. It's commonly used for data fetching, setting up subscriptions, or manually changing the DOM.
+
+Why do we use componentWillUnmount()?
+
+componentWillUnmount() is used to perform cleanup actions before the component is removed from the DOM. It's commonly used to cancel network requests, remove event listeners, or clear intervals or timeouts.
+
+Example:
+
+javascript
+Copy code
+class Timer extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = { seconds: 0 };
+  }
+
+  componentDidMount() {
+    this.intervalId = setInterval(() => {
+      this.setState(prevState => ({
+        seconds: prevState.seconds + 1
+      }));
+    }, 1000);
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.intervalId);
+  }
+
+  render() {
+    return (
+      <div>
+        <h1>Timer: {this.state.seconds} seconds</h1>
+      </div>
+    );
+  }
+}
+Why do we use super(props) in constructor?
+
+In JavaScript classes, super() is used to call the constructor of the parent class. When using super(props) in React component constructors, it allows access to this.props in the constructor.
+
+Why can't we have the callback function of useEffect async?
+
+useEffect expects its callback function to be synchronous because it's executed after rendering, and asynchronous operations might cause issues like stale closures or unexpected behavior. However, you can define an asynchronous function inside useEffect and call it synchronously:
+
+javascript
+Copy code
+useEffect(() => {
+  const fetchData = async () => {
+    try {
+      const response = await fetch('https://api.example.com/data');
+      const data = await response.json();
+      setData(data);
+    } catch (error) {
+      setError(error);
+    }
+  };
+
+  fetchData();
+}, []);
+Coding Assignment:
+
+javascript
+Copy code
+import React, { Component } from 'react';
+
+class ParentComponent extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      parentState: 'Parent State'
+    };
+    console.log('Parent Constructor');
+  }
+
+  componentDidMount() {
+    console.log('Parent componentDidMount');
+  }
+
+  componentDidUpdate() {
+    console.log('Parent componentDidUpdate');
+  }
+
+  componentWillUnmount() {
+    console.log('Parent componentWillUnmount');
+  }
+
+  render() {
+    console.log('Parent Render');
+    return (
+      <div>
+        <h2>Parent Component</h2>
+        <ChildComponent parentState={this.state.parentState} />
+      </div>
+    );
+  }
+}
+
+class ChildComponent extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      childState: 'Child State'
+    };
+    console.log('Child Constructor');
+  }
+
+  componentDidMount() {
+    console.log('Child componentDidMount');
+  }
+
+  componentDidUpdate() {
+    console.log('Child componentDidUpdate');
+  }
+
+  componentWillUnmount() {
+    console.log('Child componentWillUnmount');
+  }
+
+  render() {
+    console.log('Child Render');
+    return (
+      <div>
+        <h3>Child Component</h3>
+        <p>Parent State: {this.props.parentState}</p>
+        <p>Child State: {this.state.childState}</p>
+      </div>
+    );
+  }
+}
+
+export default ParentComponent;
+In this code, each lifecycle method logs a message to the console, allowing you to observe the order of their execution. Additionally, the setInterval function is used inside componentDidMount of ParentComponent to create an interval, and clearInterval is used inside componentWillUnmount to clear it, demonstrating the cleanup functionality.
