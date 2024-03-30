@@ -12,20 +12,6 @@ const RestaurantMenu = () => {
         getRestaurantMenu();
     }, []);
 
-    // async function getRestaurantMenu() {
-    //     const data = await fetch("https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=10.5276416&lng=76.2144349&restaurantId="+resID);
-    //     const json = await data.json();
-    //     setRestaurantName(json?.data?.cards[0]?.card?.card?.info);
-    //     const categories = json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories;
-    //     if (categories) {
-    //         const menuItems = categories.flatMap(category => category.itemCards);
-    //         setRestaurantMenu(menuItems);
-    //     }
-    //     else{
-    //         setRestaurantMenu(json?.data?.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards)
-    //     }
-    // }
-
     async function getRestaurantMenu() {
         try {
             const data = await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=10.5276416&lng=76.2144349&restaurantId=${resID}`);
