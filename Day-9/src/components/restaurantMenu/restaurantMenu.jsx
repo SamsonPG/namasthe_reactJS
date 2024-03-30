@@ -31,13 +31,16 @@ const RestaurantMenu = () => {
             const data = await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=10.5276416&lng=76.2144349&restaurantId=${resID}`);
             const json = await data.json();
             if (json && json.data && json.data.cards) {
-                setRestaurantName(json.data.cards[0]?.card?.card?.info);
-                const categories = json.data.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.categories;
+                setRestaurantName(json.data.cards[2]?.card?.card?.info);
+                const categories = json.data.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.categories;
                 if (categories) {
                     const menuItems = categories.flatMap(category => category.itemCards);
                     setRestaurantMenu(menuItems);
+                  
                 } else {
-                    setRestaurantMenu(json.data.cards[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards[1]?.card?.card?.itemCards || []);
+                    const menuItems2 = json.data.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards
+                    setRestaurantMenu(menuItems2);
+                  
                 }
             } else {
                 console.error("Invalid JSON response:", json);
