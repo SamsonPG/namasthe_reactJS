@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import Card from "./card.jsx";
-import Shimmer from "./shimmerui.jsx";
+import Card from "./Card.jsx";
+import Shimmer from "./Shimmerui.jsx";
 import {defaultRestaurantsList} from "../../constant.js"
 import {Link} from "react-router-dom"
 

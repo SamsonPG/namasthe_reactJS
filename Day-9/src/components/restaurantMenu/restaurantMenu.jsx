@@ -1,44 +1,14 @@
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { cloudinaryLink } from "../../constant";
-import Shimmer from "./shimmerui"
+import Shimmer from "./Shimmerui"
+import getRestaurantMenu from "../../../utils/getRestaurantMenu";
 
 const RestaurantMenu = () => {
     const { resID } = useParams();
-    const [restaurantName, setRestaurantName] = useState(null);
-    const [restaurantMenu, setRestaurantMenu] = useState(null);
 
-    useEffect(() => {
-        getRestaurantMenu();
-    }, []);
+    const {restaurantMenu, restaurantName} = getRestaurantMenu(resID)
 
-    async function getRestaurantMenu() {
-        try {
-            const data = await fetch(`https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=10.5276416&lng=76.2144349&restaurantId=${resID}`);
-            const json = await data.json();
-            if (json && json.data && json.data.cards) {
-                setRestaurantName(json.data.cards[2]?.card?.card?.info);
-                const categories = json.data.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.categories;
-                if (categories) {
-                    const menuItems = categories.flatMap(category => category.itemCards);
-                    setRestaurantMenu(menuItems);
-                  
-                } else {
-                    const menuItems2 = json.data.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards
-                    setRestaurantMenu(menuItems2);
-                  
-                }
-            } else {
-                console.error("Invalid JSON response:", json);
-                // Handle the case where the JSON response does not have the expected structure
-            }
-        } catch (error) {
-            console.error("Error fetching restaurant menu:", error);
-            // Handle fetch error
-        }
-    }
-    
- 
     return (!restaurantMenu || !restaurantName)? <Shimmer/>:(
         <div className="restaurantMenu">
             <div>
