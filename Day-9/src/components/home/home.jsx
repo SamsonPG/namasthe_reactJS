@@ -12,9 +12,6 @@ const Home = () => {
     const {allRestaurants, filteredRestaurants} = getAllRestaurants(searchText)
 
 
-
-
-
     //not rendering component (early return)
 if(!allRestaurants) return (<><div>No restaurants found 😟</div></>);
 
