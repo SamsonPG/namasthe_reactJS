@@ -1,12 +1,11 @@
 import logo from "../../img/logo.png";
 import { useState } from "react";
 import {Link } from "react-router-dom";
-import useOnlineOffline from "../../utils/useOnlineOffline";
 
 const Header = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  const onlineStatus =useOnlineOffline()
+  
 
   return (
     <nav className="navbar">
@@ -18,7 +17,6 @@ const Header = () => {
         <li><Link to="/">Home</Link></li>
         <li><Link to="/aboutus">About Us</Link></li>
         <li><Link to="/contactus">Contact Us</Link></li>
-        <li><span>{onlineStatus? "💚" : "❤" }</span></li>
         <li>
           {isLoggedIn ? (
             <button

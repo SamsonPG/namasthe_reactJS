@@ -1,23 +1,24 @@
 import { useState, useEffect } from "react";
 
 const useOnlineOffline = () => {
+
   const [onlineStatus, setOnlineStatus] = useState(true);
 
   useEffect(() => {
-    const Online = () => {
+    const handleOnline = () => {
       setOnlineStatus(true);
     };
-    const Offline = () => {
+    const handleOffline = () => {
         setOnlineStatus(false);
       };
 
 
-    window.addEventListener("online", Online);
-    window.addEventListener("offline", Offline);
+    window.addEventListener("online", handleOnline);
+    window.addEventListener("offline", handleOffline);
 
     return () => {
-      window.removeEventListener("online", Online);
-      window.removeEventListener("offline", Offline);
+      window.removeEventListener("online", handleOnline);
+      window.removeEventListener("offline", handleOffline);
     };
   }, []);
 
@@ -25,3 +26,30 @@ const useOnlineOffline = () => {
 };
 
 export default useOnlineOffline;
+
+// import { useState, useEffect } from "react";
+
+// const useOnlineOffline = () => {
+//   const [onlineStatus, setOnlineStatus] = useState(navigator.onLine);
+
+//   useEffect(() => {
+//     const handleOnline = () => {
+//       setOnlineStatus(true);
+//     };
+//     const handleOffline = () => {
+//       setOnlineStatus(false);
+//     };
+
+//     window.addEventListener("online", handleOnline);
+//     window.addEventListener("offline", handleOffline);
+
+//     return () => {
+//       window.removeEventListener("online", handleOnline);
+//       window.removeEventListener("offline", handleOffline);
+//     };
+//   }, []);
+
+//   return onlineStatus;
+// };
+
+// export default useOnlineOffline;

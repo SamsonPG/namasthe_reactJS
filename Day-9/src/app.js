@@ -1,15 +1,21 @@
-import React from "react";
+import React ,{lazy, Suspense} from "react";
 import ReactDOM from "react-dom/client";
-import Header from "./components/header";
-import Home from "./components/home/home";
-import AboutUs from "./components/aboutUs/aboutUs";
-import AboutClass from "./components/aboutUs/classAboutUs";
-import Profile from "./components/aboutUs/profile";
-import ContactUs from "./components/contact/contactUs";
-import ErrorPage from "./components/errorPage/errorPage";
-import Footer from "./components/footer";
+import Header from "./components/Header";
+// import Home from "./components/home/Home";
+import AboutUs from "./components/aboutUs/AboutUs";
+import AboutClass from "./components/aboutUs/ClassAboutUs";
+import Profile from "./components/aboutUs/Profile";
+import ContactUs from "./components/contact/ContactUs";
+import ErrorPage from "./components/errorPage/ErrorPage";
+import Footer from "./components/Footer";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
-import RestaurantMenu from "./components/restaurantMenu/restaurantMenu";
+import Shimmer from "./components/home/Shimmerui";
+// import RestaurantMenu from "./components/restaurantMenu/restaurantMenu";
+
+const Home = lazy(()=> import("./components/home/Home"))
+const RestaurantMenu = lazy(()=> import("./components/restaurantMenu/RestaurantMenu"))
+
+
 
 const AppLayout = () => {
   return (
@@ -27,11 +33,11 @@ const appRouter = createBrowserRouter([
     element: <AppLayout />,
     errorElement: <ErrorPage />,
     children: [
-      { path: "/", element: <Home /> },
+      { path: "/", element: <Suspense fallback={<h1>Loading...</h1>}><Home /></Suspense> },
       { path: "/aboutus", element: <AboutUs />, children:[{path :"profile",element: <Profile/>}]},
       { path: "/aboutclass", element: <AboutClass /> },
       { path: "/contactus", element: <ContactUs /> },
-      { path: "/restaurant/:resID", element: <RestaurantMenu/>}
+      { path: "/restaurant/:resID", element: <Suspense fallback={<Shimmer/>}><RestaurantMenu/></Suspense>}
     ],
   },
 ]);
