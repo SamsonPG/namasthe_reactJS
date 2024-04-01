@@ -1,6 +1,6 @@
 
 import {useEffect, useState} from "react";
-import { restaurantMenu } from "../src/constant";
+import { restaurantMenuURL } from "../src/constant";
 
 const getRestaurantMenu = (resID)=>{
 
@@ -14,7 +14,7 @@ const getRestaurantMenu = (resID)=>{
 
     async function getRestaurantMenu() {
         try {
-            const data = await fetch(`restaurantMenu${resID}`);
+            const data = await fetch(`${restaurantMenuURL}${resID}`);
             const json = await data.json();
             if (json && json.data && json.data.cards) {
                 setRestaurantName(json.data.cards[2]?.card?.card?.info);
@@ -38,7 +38,7 @@ const getRestaurantMenu = (resID)=>{
         }
     }
     
- return restaurantName, restaurantMenu;
+ return {restaurantName, restaurantMenu};
 
 };
 

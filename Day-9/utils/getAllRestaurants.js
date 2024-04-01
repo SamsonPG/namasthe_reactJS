@@ -33,7 +33,7 @@ const getAllRestaurants = (searchText)=>{
         setFilteredRestaurants(filteredData);
     }, [searchText, allRestaurants]);
 
-    return allRestaurants, filteredRestaurants;
+    return {allRestaurants, filteredRestaurants};
 
 }
 

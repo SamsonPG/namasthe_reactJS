@@ -2,7 +2,7 @@ export const cloudinaryLink ="https://media-assets.swiggy.com/swiggy/image/uploa
 
 export const restaurantList = "https://www.swiggy.com/dapi/restaurants/list/v5?lat=10.51600&lng=76.21570&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
 
-export const restaurantMenu = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=10.5276416&lng=76.2144349&restaurantId="
+export const restaurantMenuURL = "https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=10.5276416&lng=76.2144349&restaurantId="
 
 export const defaultRestaurantsList = 
 [

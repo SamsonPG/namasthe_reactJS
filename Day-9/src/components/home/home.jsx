@@ -28,7 +28,7 @@ if(!allRestaurants) return (<><div>No restaurants found 😟</div></>);
 
             <div className="cardContainer">
             {filteredRestaurants.length === 0 ? (
-                    <>{searchText ? <div>No restaurants found</div> : <Shimmer />}</>
+                    <>{searchText ? <div>No restaurants found 😟</div> : <Shimmer />}</>
                 ) : (
                     filteredRestaurants.slice(0, 8).map((restaurant) => (
                     <Link to={"/restaurant/"+restaurant.info.id} key={restaurant.info.id} ><Card {...restaurant.info} /></Link> 
