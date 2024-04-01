@@ -2,7 +2,7 @@ import { useState } from "react";
 import Card from "./Card.jsx";
 import Shimmer from "./Shimmerui.jsx";
 import {Link} from "react-router-dom"
-import getAllRestaurants from "../../../utils/getAllRestaurants.js";
+import getAllRestaurants from "../../utils/getAllRestaurants.js";
 
 
 const Home = () => {

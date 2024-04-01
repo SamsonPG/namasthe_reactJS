@@ -1,4 +1,4 @@
-import useOnlineOffline from "../../utils/useOnlineOffline";
+import useOnlineOffline from "../utils/useOnlineOffline";
 
 const Footer = ()=>{
 

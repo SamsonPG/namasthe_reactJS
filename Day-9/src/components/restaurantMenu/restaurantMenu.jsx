@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { cloudinaryLink } from "../../constant";
 import Shimmer from "./Shimmerui"
-import getRestaurantMenu from "../../../utils/getRestaurantMenu";
+import getRestaurantMenu from "../../utils/getRestaurantMenu";
 
 const RestaurantMenu = () => {
     const { resID } = useParams();

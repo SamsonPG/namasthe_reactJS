@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { restaurantList } from "../src/constant";
+import { restaurantList } from "../constant";
 
 const getAllRestaurants = (searchText)=>{
 
