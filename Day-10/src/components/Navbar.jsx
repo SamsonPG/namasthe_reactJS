@@ -8,7 +8,7 @@ const Navbar = () => {
   
 
   return (
-    <nav className="z-50 bg-amber-400 shadow-md sticky top-0 w-full mb-6 p-1">
+    <nav className="z-50 bg-amber-400 shadow-md sticky top-0 w-full mb-6">
       <div  className="flex justify-between items-center">
       <a href="/" className="flex items-center">
         <img className="w-14 h-14" src={logo} alt="logo" />
@@ -39,6 +39,8 @@ const Navbar = () => {
         </li>
       </ul>
       </div>
+      <div className=" animate-pulse pt-1  bg-purple-800  sm:bg-blue-800 md:bg-red-800"></div>
+
     </nav>
   );
 };

@@ -32,7 +32,7 @@ const Home = () => {
       <div className="flex justify-center">
         <div className="relative w-96">
           <input
-            className="bg-slate-200 p-2 pr-10 rounded-md placeholder-black text-black w-full"
+            className="bg-slate-200 p-2 pr-10 rounded-md placeholder-black text-black w-full hover:bg-stone-300"
             type="text"
             placeholder="Search for Restaurant and Food"
             value={searchText}
@@ -57,9 +57,7 @@ const Home = () => {
         </div>
       </div>
 
-      
-
-      <div className="flex flex-wrap justify-around m-10 mb-10">
+      <div className="flex flex-wrap justify-around mb-10">
         {filteredRestaurants.length === 0 ? (
           <>{searchText ? <div>No restaurants found 😟</div> : <Shimmer />}</>
         ) : (
