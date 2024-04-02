@@ -6,8 +6,8 @@ const Footer = ()=>{
 
 
     return(
-        <footer>
-        <div className="footer">
+        <footer className=" bg-amber-400 shadow-mt  w-full flex justify-center p-5 mx-auto">
+        <div className=" flex justify-center">
         <h1>Footer</h1>
         <span>{onlineStatus? "📶- Online" : "📶- Offline" }</span>
        </div>

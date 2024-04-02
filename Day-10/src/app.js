@@ -1,6 +1,6 @@
 import React ,{lazy, Suspense} from "react";
 import ReactDOM from "react-dom/client";
-import Header from "./components/Header";
+import Navbar from "./components/Navbar";
 // import Home from "./components/home/Home";
 import AboutUs from "./components/aboutUs/AboutUs";
 import AboutClass from "./components/aboutUs/ClassAboutUs";
@@ -20,12 +20,14 @@ const RestaurantMenu = lazy(()=> import("./components/restaurantMenu/RestaurantM
 const AppLayout = () => {
   return (
     <>
-      <Header />
+      <Navbar />
       <Outlet />
       <Footer />
     </>
   );
 };
+
+
 
 const appRouter = createBrowserRouter([
   {
