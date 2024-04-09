@@ -1,4 +1,4 @@
-import React ,{lazy, Suspense} from "react";
+import React, { lazy, Suspense, useState } from "react";
 import ReactDOM from "react-dom/client";
 import Navbar from "./components/Navbar";
 // import Home from "./components/home/Home";
@@ -11,24 +11,30 @@ import ErrorPage from "./components/errorPage/ErrorPage";
 import Footer from "./components/Footer";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Shimmer from "./components/home/Shimmerui";
+import SamContext from "./utils/SamContext";
 // import RestaurantMenu from "./components/restaurantMenu/restaurantMenu";
 
-const Home = lazy(()=> import("./components/home/Home"))
-const RestaurantMenu = lazy(()=> import("./components/restaurantMenu/RestaurantMenu"))
-
-
+const Home = lazy(() => import("./components/home/Home"));
+const RestaurantMenu = lazy(() =>
+  import("./components/restaurantMenu/RestaurantMenu")
+);
 
 const AppLayout = () => {
+  const [userSam, setUserSam] = useState({
+    name: "samu shimshon",
+    email: "sam2@gmail.com",
+  });
+
   return (
     <>
       <Navbar />
       <Outlet />
-      <Footer />
+      <SamContext.Provider value={{ user2: userSam, setUserSam: setUserSam }}>
+        <Footer />
+      </SamContext.Provider>
     </>
   );
 };
-
-
 
 const appRouter = createBrowserRouter([
   {
@@ -36,12 +42,30 @@ const appRouter = createBrowserRouter([
     element: <AppLayout />,
     errorElement: <ErrorPage />,
     children: [
-      { path: "/", element: <Suspense fallback={<h1>Loading...</h1>}><Home /></Suspense> },
-      { path: "/aboutus", element: <AboutUs />, children:[{path :"profile",element: <Profile/>}]},
+      {
+        path: "/",
+        element: (
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <Home />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/aboutus",
+        element: <AboutUs />,
+        children: [{ path: "profile", element: <Profile /> }],
+      },
       { path: "/aboutclass", element: <AboutClass /> },
       { path: "/contactus", element: <ContactUs /> },
-      {path:"/instamart",element:<InstaMart/>},
-      { path: "/restaurant/:resID", element: <Suspense fallback={<Shimmer/>}><RestaurantMenu/></Suspense>}
+      { path: "/instamart", element: <InstaMart /> },
+      {
+        path: "/restaurant/:resID",
+        element: (
+          <Suspense fallback={<Shimmer />}>
+            <RestaurantMenu />
+          </Suspense>
+        ),
+      },
     ],
   },
 ]);

@@ -1,11 +1,12 @@
 import logo from "../assets/img/logo.png";
-import { useState } from "react";
+import { useState,useContext } from "react";
 import {Link } from "react-router-dom";
+import UserContext from "../utils/UserContext";
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
-  
+  const {user} = useContext(UserContext) 
 
   return (
     <nav className="z-50 bg-amber-400 shadow-md sticky top-0 w-full mb-6">
@@ -19,9 +20,11 @@ const Navbar = () => {
         <li className="px-2"><Link to="/aboutus">About Us</Link></li>
         <li className="px-2"><Link to="/contactus">Contact Us</Link></li>
         <li className="px-2"><Link to="/instamart">Instamart</Link></li>
-        <li className="px-2">
+        <li className="pl-4 pr-0 font-bold ">{user.name}</li>
+        <li className="pr-4">
           {isLoggedIn ? (
             <button
+            className="rounded-md px-2 pb-1 m-2 bg-orange-900 text-white"
               onClick={() => {
                 setIsLoggedIn(false);
               }}
@@ -30,6 +33,7 @@ const Navbar = () => {
             </button>
           ) : (
             <button
+            className="rounded-md px-2 pb-1 m-2 bg-orange-900 text-white"
               onClick={() => {
                 setIsLoggedIn(true);
               }}
