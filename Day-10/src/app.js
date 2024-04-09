@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import Navbar from "./components/Navbar";
 // import Home from "./components/home/Home";
 import AboutUs from "./components/aboutUs/AboutUs";
+import InstaMart from "./components/instamart/InstaMart";
 import AboutClass from "./components/aboutUs/ClassAboutUs";
 import Profile from "./components/aboutUs/Profile";
 import ContactUs from "./components/contact/ContactUs";
@@ -39,6 +40,7 @@ const appRouter = createBrowserRouter([
       { path: "/aboutus", element: <AboutUs />, children:[{path :"profile",element: <Profile/>}]},
       { path: "/aboutclass", element: <AboutClass /> },
       { path: "/contactus", element: <ContactUs /> },
+      {path:"/instamart",element:<InstaMart/>},
       { path: "/restaurant/:resID", element: <Suspense fallback={<Shimmer/>}><RestaurantMenu/></Suspense>}
     ],
   },
