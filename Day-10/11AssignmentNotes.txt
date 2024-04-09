@@ -1,0 +1,163 @@
+Theory:
+
+Prop Drilling: Prop drilling refers to the process of passing props from a parent component down to nested child components, even when intermediate components do not need those props. It can lead to code that is hard to maintain and understand, especially in deeply nested component trees.
+
+Lifting State Up: Lifting state up is a pattern in React where the state of a component is moved to a higher-level component in the component tree. This is useful when multiple components need to share the same state or when the state affects multiple components. By lifting the state up, the data can be passed down to child components as props.
+
+Context Provider and Context Consumer: Context in React provides a way to pass data through the component tree without having to pass props down manually at every level. The Context API consists of two main parts:
+
+Context Provider: The provider component is used to wrap the part of the component tree where you want to make the context available. It accepts a value prop, which provides the value to be shared with all children components.
+Context Consumer: The consumer component is used to access the context value within functional components. It must be nested within a corresponding provider component to access the context value.
+Default Value in Context Provider: If you don't pass a value to the provider, it will use the default value provided by the createContext function when creating the context. This default value is only used when a matching provider is not found in the component tree.
+
+Coding:
+
+Here's an example of using React Context:
+
+jsx
+Copy code
+import React, { createContext, useContext, useState } from "react";
+
+// Create a context
+const ThemeContext = createContext();
+
+// Create a provider component
+const ThemeProvider = ({ children }) => {
+  const [theme, setTheme] = useState("light");
+
+  return (
+    <ThemeContext.Provider value={{ theme, setTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+};
+
+// Create a consumer hook
+const useTheme = () => {
+  return useContext(ThemeContext);
+};
+
+// Child component
+const ThemeToggle = () => {
+  const { theme, setTheme } = useTheme();
+
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
+
+  return (
+    <button onClick={toggleTheme}>
+      Toggle Theme ({theme === "light" ? "Dark" : "Light"})
+    </button>
+  );
+};
+
+// Parent component
+const App = () => {
+  return (
+    <ThemeProvider>
+      <div>
+        <h1>Theme Toggler</h1>
+        <ThemeToggle />
+      </div>
+    </ThemeProvider>
+  );
+};
+
+export default App;
+In this example:
+
+ThemeProvider acts as the provider, wrapping the component tree.
+ThemeToggle is a child component that uses the useTheme hook to consume the context and toggle the theme.
+App is the parent component where the ThemeProvider is used to provide the theme context to its children.
+You can also nest contexts by wrapping another ThemeProvider around components that need access to a different context.
+
+
+Certainly! Here's an example of nesting contexts by wrapping another ThemeProvider around components that need access to a different context:
+
+jsx
+Copy code
+import React, { createContext, useContext, useState } from "react";
+
+// Create a context for theme
+const ThemeContext = createContext();
+
+// Create a provider component for theme
+const ThemeProvider = ({ children }) => {
+  const [theme, setTheme] = useState("light");
+
+  const toggleTheme = () => {
+    setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
+  };
+
+  return (
+    <ThemeContext.Provider value={{ theme, toggleTheme }}>
+      {children}
+    </ThemeContext.Provider>
+  );
+};
+
+// Create a consumer hook for theme
+const useTheme = () => {
+  return useContext(ThemeContext);
+};
+
+// Create a context for language
+const LanguageContext = createContext();
+
+// Create a provider component for language
+const LanguageProvider = ({ children }) => {
+  const [language, setLanguage] = useState("english");
+
+  const toggleLanguage = () => {
+    setLanguage((prevLanguage) => (prevLanguage === "english" ? "spanish" : "english"));
+  };
+
+  return (
+    <LanguageContext.Provider value={{ language, toggleLanguage }}>
+      {children}
+    </LanguageContext.Provider>
+  );
+};
+
+// Create a consumer hook for language
+const useLanguage = () => {
+  return useContext(LanguageContext);
+};
+
+// Child component that uses both theme and language contexts
+const ThemeAndLanguageComponent = () => {
+  const { theme, toggleTheme } = useTheme();
+  const { language, toggleLanguage } = useLanguage();
+
+  return (
+    <div>
+      <h2>Current Theme: {theme}</h2>
+      <button onClick={toggleTheme}>Toggle Theme</button>
+      <h2>Current Language: {language}</h2>
+      <button onClick={toggleLanguage}>Toggle Language</button>
+    </div>
+  );
+};
+
+// Parent component
+const App = () => {
+  return (
+    <ThemeProvider>
+      <LanguageProvider>
+        <div>
+          <h1>Theme and Language Example</h1>
+          <ThemeAndLanguageComponent />
+        </div>
+      </LanguageProvider>
+    </ThemeProvider>
+  );
+};
+
+export default App;
+In this example:
+
+There are two contexts: ThemeContext and LanguageContext.
+Each context has its own provider (ThemeProvider and LanguageProvider) and consumer hook (useTheme and useLanguage).
+The ThemeAndLanguageComponent component consumes both the theme and language contexts using the respective hooks.
+The App component nests both providers, allowing the ThemeAndLanguageComponent to access both contexts.
