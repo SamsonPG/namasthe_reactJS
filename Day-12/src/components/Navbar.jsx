@@ -20,6 +20,7 @@ const Navbar = () => {
         <li className="px-2"><Link to="/aboutus">About Us</Link></li>
         <li className="px-2"><Link to="/contactus">Contact Us</Link></li>
         <li className="px-2"><Link to="/instamart">Instamart</Link></li>
+        <li className="px-2"><Link to="/cart">Cart</Link></li>
         <li className="pl-4 pr-0 font-bold ">{user.name}</li>
         <li className="pr-4">
           {isLoggedIn ? (

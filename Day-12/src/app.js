@@ -6,12 +6,15 @@ import AboutUs from "./components/aboutUs/AboutUs";
 import InstaMart from "./components/instamart/InstaMart";
 import AboutClass from "./components/aboutUs/ClassAboutUs";
 import Profile from "./components/aboutUs/Profile";
+import Cart from "./components/cart/Cart";
 import ContactUs from "./components/contact/ContactUs";
 import ErrorPage from "./components/errorPage/ErrorPage";
 import Footer from "./components/Footer";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Shimmer from "./components/home/Shimmerui";
 import SamContext from "./utils/SamContext";
+import {Provider} from "react-redux";
+import Store from "./store/Store";
 // import RestaurantMenu from "./components/restaurantMenu/restaurantMenu";
 
 const Home = lazy(() => import("./components/home/Home"));
@@ -27,11 +30,13 @@ const AppLayout = () => {
 
   return (
     <>
+      <Provider store={Store}>
       <Navbar />
       <Outlet />
       <SamContext.Provider value={{ user2: userSam, setUserSam: setUserSam }}>
         <Footer />
       </SamContext.Provider>
+      </Provider>
     </>
   );
 };
@@ -58,6 +63,7 @@ const appRouter = createBrowserRouter([
       { path: "/aboutclass", element: <AboutClass /> },
       { path: "/contactus", element: <ContactUs /> },
       { path: "/instamart", element: <InstaMart /> },
+      { path:"/cart", element:<Cart/>},
       {
         path: "/restaurant/:resID",
         element: (
