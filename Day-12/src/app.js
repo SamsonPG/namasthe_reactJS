@@ -13,7 +13,7 @@ import Footer from "./components/Footer";
 import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
 import Shimmer from "./components/home/Shimmerui";
 import SamContext from "./utils/SamContext";
-import {Provider} from "react-redux";
+import { Provider } from "react-redux";
 import Store from "./store/Store";
 // import RestaurantMenu from "./components/restaurantMenu/restaurantMenu";
 
@@ -31,11 +31,11 @@ const AppLayout = () => {
   return (
     <>
       <Provider store={Store}>
-      <Navbar />
-      <Outlet />
-      <SamContext.Provider value={{ user2: userSam, setUserSam: setUserSam }}>
-        <Footer />
-      </SamContext.Provider>
+        <Navbar />
+        <Outlet />
+        <SamContext.Provider value={{ user2: userSam, setUserSam: setUserSam }}>
+          <Footer />
+        </SamContext.Provider>
       </Provider>
     </>
   );
@@ -63,7 +63,7 @@ const appRouter = createBrowserRouter([
       { path: "/aboutclass", element: <AboutClass /> },
       { path: "/contactus", element: <ContactUs /> },
       { path: "/instamart", element: <InstaMart /> },
-      { path:"/cart", element:<Cart/>},
+      { path: "/cart", element: <Cart /> },
       {
         path: "/restaurant/:resID",
         element: (

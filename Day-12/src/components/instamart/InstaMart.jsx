@@ -34,8 +34,13 @@ const InstaMart = () => {
   const [visibleSection, setVisibleSection] = useState("");
 
   return (
+    <>
+    <div className="flex justify-center">
+  <h1 className="font-bold m-5">Instamart</h1>
+</div>
+
     <div>
-      <h1 className="text-3xl p-2 m-2 font-bold">Instamart</h1>
+   
       <Section
         key="About"
         title={"About Instamart"}
@@ -64,7 +69,8 @@ const InstaMart = () => {
         }
       />
     </div>
-  );
+    </>
+      );
 };
 
 export default InstaMart;

@@ -46,16 +46,16 @@ const RestaurantMenu = () => {
             <div
               key={item?.card?.info?.id}
               className="w-full flex border rounded-lg shadow-lg m-4 p-4 bg-zinc-100 transition-transform duration-300 ease-in-out transform hover:scale-105"
-            ><div>
-              <div className="w-[100px] h-[100px] overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 ">
-                <img
-                  className="h-full w-full object-cover object-center "
-                  src={cloudinaryLink + item?.card?.info?.imageId}
-                  alt={item?.card?.info?.name}
-                ></img>
-           
-              </div>
-              <button
+            >
+              <div>
+                <div className="w-[100px] h-[100px] overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 ">
+                  <img
+                    className="h-full w-full object-cover object-center "
+                    src={cloudinaryLink + item?.card?.info?.imageId}
+                    alt={item?.card?.info?.name}
+                  ></img>
+                </div>
+                <button
                   className="text-white rounded-lg font-bold bg-green-600  py-2 my-1 px-4"
                   onClick={() => addFoodItem(item.card.info)}
                 >
@@ -66,22 +66,27 @@ const RestaurantMenu = () => {
                 <h4 className="font-bold">{item?.card?.info?.name}</h4>
                 <p>Category: {item?.card?.info?.category}</p>
                 <p className="font-bold">
-                  Price: {item?.card?.info?.price / 100}/-
+                  Price:{" "}
+                  {item?.card?.info?.defaultPrice
+                    ? item.card.info.defaultPrice / 100
+                    : item.card.info.price / 100}
+                  /-
                 </p>
+
                 <p>
                   Ratings:{" "}
                   {item?.card?.info?.ratings?.aggregatedRating?.rating !==
-                  undefined
-                    ? <span className="inline-block bg-green-500 rounded-full p-1 px-4 mb-3 mt-2 text-white">
-                    👌 {item?.card?.info?.ratings?.aggregatedRating?.rating}
-                  </span>
-                    : <span className="inline-block bg-gray-200 rounded-full p-1 px-4 mb-3 mt-2 text-white">
-                    👌 0.0
-                  </span>}
+                  undefined ? (
+                    <span className="inline-block bg-green-500 rounded-full p-1 px-4 mb-3 mt-2 text-white">
+                      👌 {item?.card?.info?.ratings?.aggregatedRating?.rating}
+                    </span>
+                  ) : (
+                    <span className="inline-block bg-gray-200 rounded-full p-1 px-4 mb-3 mt-2 text-white">
+                      👌 0.0
+                    </span>
+                  )}
                 </p>
-           
               </div>
-       
             </div>
           ))}
         </div>

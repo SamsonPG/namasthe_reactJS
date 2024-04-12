@@ -56,6 +56,9 @@ const Home = () => {
           </span>
         </div>
       </div>
+      <div className="flex justify-center">
+  <h1 className="font-bold m-5">Our Restaurants</h1>
+</div>
 
       <div className="flex flex-wrap justify-around mb-10">
         {filteredRestaurants.length === 0 ? (

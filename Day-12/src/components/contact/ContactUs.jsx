@@ -1,7 +1,11 @@
 const contactUs = ()=>{
     return(
         <>
-        <h1>Contact us</h1>
+        <div className="flex justify-center">
+  <h1 className="font-bold m-5">Contact Us</h1>
+</div>
+
+  
         </>
     )
 }
