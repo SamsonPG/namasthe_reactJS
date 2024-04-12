@@ -13,9 +13,9 @@ const RestaurantMenu = () => {
 
   const dispatch = useDispatch();
 
-  const addFoodItem = (item)=>{
-    dispatch(addToCart(item))
-  }
+  const addFoodItem = (item) => {
+    dispatch(addToCart(item));
+  };
 
   return !restaurantMenu || !restaurantName ? (
     <Shimmer />
@@ -41,22 +41,45 @@ const RestaurantMenu = () => {
       </div>
       <div className="p-5">
         <h1 className="font-bold">Restaurant Menu :</h1>
-        <div className="m-4 flex flex-wrap justify-around justify-center">
-        {restaurantMenu.map((item) => (
-          <div
-            key={item?.card?.info?.id}
-            className="w-full border rounded-lg shadow-lg m-4 p-4 bg-zinc-100 transition-transform duration-300 ease-in-out transform hover:scale-105"
-          >
-            <h4 className="font-bold">{item?.card?.info?.name}</h4>
-            <p>Category: {item?.card?.info?.category}</p>
-            <p className="font-bold">Price: {item?.card?.info?.price /100}/-</p>
-            <p>
-              Ratings: {item?.card?.info?.ratings?.aggregatedRating?.rating !== undefined ? item?.card?.info?.ratings?.aggregatedRating?.rating : "0.0"}
-
-            </p>
-            <button className="text-white rounded-lg m-2 font-bold p-2 bg-green-600" onClick={()=>addFoodItem(item.card.info)}>Add Item</button>
-          </div>
-        ))}
+        <div className="m-2 flex flex-wrap justify-around justify-center">
+          {restaurantMenu.map((item) => (
+            <div
+              key={item?.card?.info?.id}
+              className="w-full flex border rounded-lg shadow-lg m-4 p-4 bg-zinc-100 transition-transform duration-300 ease-in-out transform hover:scale-105"
+            ><div>
+              <div className="w-[100px] h-[100px] overflow-hidden rounded-lg bg-gray-200 xl:aspect-h-8 xl:aspect-w-7 ">
+                <img
+                  className="h-full w-full object-cover object-center "
+                  src={cloudinaryLink + item?.card?.info?.imageId}
+                  alt={item?.card?.info?.name}
+                ></img>
+           
+              </div>
+              <button
+                  className="text-white rounded-lg font-bold bg-green-600  py-2 my-1 px-4"
+                  onClick={() => addFoodItem(item.card.info)}
+                >
+                  Add Item
+                </button>
+              </div>
+              <div className="m-2">
+                <h4 className="font-bold">{item?.card?.info?.name}</h4>
+                <p>Category: {item?.card?.info?.category}</p>
+                <p className="font-bold">
+                  Price: {item?.card?.info?.price / 100}/-
+                </p>
+                <p>
+                  Ratings:{" "}
+                  {item?.card?.info?.ratings?.aggregatedRating?.rating !==
+                  undefined
+                    ? item?.card?.info?.ratings?.aggregatedRating?.rating
+                    : "0.0"}
+                </p>
+         
+              </div>
+       
+            </div>
+          ))}
         </div>
       </div>
     </div>
