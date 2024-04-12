@@ -72,10 +72,14 @@ const RestaurantMenu = () => {
                   Ratings:{" "}
                   {item?.card?.info?.ratings?.aggregatedRating?.rating !==
                   undefined
-                    ? item?.card?.info?.ratings?.aggregatedRating?.rating
-                    : "0.0"}
+                    ? <span className="inline-block bg-green-500 rounded-full p-1 px-4 mb-3 mt-2 text-white">
+                    👌 {item?.card?.info?.ratings?.aggregatedRating?.rating}
+                  </span>
+                    : <span className="inline-block bg-gray-200 rounded-full p-1 px-4 mb-3 mt-2 text-white">
+                    👌 0.0
+                  </span>}
                 </p>
-         
+           
               </div>
        
             </div>
