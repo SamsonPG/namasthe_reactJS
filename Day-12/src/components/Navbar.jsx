@@ -2,12 +2,16 @@ import logo from "../assets/img/logo.png";
 import { useState,useContext } from "react";
 import {Link } from "react-router-dom";
 import UserContext from "../utils/UserContext";
+import {useSelector} from "react-redux";
+
 
 const Navbar = () => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   const {user} = useContext(UserContext) 
 
+  const cartItems = useSelector((store) => store.cartFoodWilla.cart)
+console.log(cartItems);
   return (
     <nav className="z-50 bg-amber-400 shadow-md sticky top-0 w-full mb-6">
       <div  className="flex justify-between items-center">
@@ -20,7 +24,7 @@ const Navbar = () => {
         <li className="px-2"><Link to="/aboutus">About Us</Link></li>
         <li className="px-2"><Link to="/contactus">Contact Us</Link></li>
         <li className="px-2"><Link to="/instamart">Instamart</Link></li>
-        <li className="px-2"><Link to="/cart">Cart</Link></li>
+        <li className="px-2"><Link to="/cart">Cart<span className="bg-lime-500 ml-1 border-b-lime-500 text-white rounded-full px-1">{cartItems.length}</span></Link></li>
         <li className="pl-4 pr-0 font-bold ">{user.name}</li>
         <li className="pr-4">
           {isLoggedIn ? (
