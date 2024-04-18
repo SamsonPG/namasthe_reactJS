@@ -39,7 +39,7 @@ const Footer = () => {
           <span className="font-bold mr-4">{user.name}</span>
           <span className="font-bold mr-4">{user.email}</span>
         </div>
-        <span>{onlineStatus ? "📶- Online" : "📶- Offline"}</span>
+        <span data-testid="online-status">{onlineStatus ? "📶- Online" : "📶- Offline"}</span>
       </div>
     </footer>
   );
