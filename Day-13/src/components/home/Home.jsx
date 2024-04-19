@@ -32,6 +32,7 @@ const Home = () => {
       <div className="flex justify-center">
         <div className="relative w-96">
           <input
+            data-testid = "searchBox"
             className="bg-slate-200 p-2 pr-10 rounded-md placeholder-black text-black w-full hover:bg-stone-300"
             type="text"
             placeholder="Search for Restaurant and Food"
@@ -60,7 +61,7 @@ const Home = () => {
   <h1 className="font-bold m-5">Our Restaurants</h1>
 </div>
 
-      <div className="flex flex-wrap justify-around mb-10">
+      <div data-testid="restaurant-list" className="flex flex-wrap justify-around mb-10">
         {filteredRestaurants.length === 0 ? (
           <>{searchText ? <div>No restaurants found 😟</div> : <Shimmer />}</>
         ) : (
