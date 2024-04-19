@@ -41,7 +41,7 @@ const RestaurantMenu = () => {
       </div>
       <div className="p-5">
         <h1 className="font-bold">Restaurant Menu :</h1>
-        <div className="m-2 flex flex-wrap justify-around justify-center">
+        <div data-testid="resMenu"className="m-2 flex flex-wrap justify-around justify-center">
           {restaurantMenu.map((item) => (
             <div
               key={item?.card?.info?.id}
@@ -56,6 +56,7 @@ const RestaurantMenu = () => {
                   ></img>
                 </div>
                 <button
+                data-testid="addBtn"
                   className="text-white rounded-lg font-bold bg-green-600  py-2 my-1 px-4"
                   onClick={() => addFoodItem(item.card.info)}
                 >
