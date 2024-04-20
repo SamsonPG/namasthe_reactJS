@@ -11,7 +11,7 @@ const Header = () => {
     <nav className="navbar">
       <a href="/" style={{ display: "flex", alignItems: "center" }}>
         <img src={logo} alt="logo" />
-        <span>Food Willa</span>
+        <span>Food Cart</span>
       </a>
       <ul>
         <li><Link to="/">Home</Link></li>

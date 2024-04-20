@@ -28,23 +28,23 @@ console.log(cartItems);
         <li className="pl-4 pr-0 font-bold ">{user.name}</li>
         <li className="pr-4">
           {isLoggedIn ? (
-            <button
+            <Link to="/"><button
             className="rounded-md px-2 pb-1 m-2 bg-orange-900 text-white"
               onClick={() => {
                 setIsLoggedIn(false);
               }}
             >
               Logout
-            </button>
+            </button></Link>
           ) : (
-            <button
+            <Link to="/loginform"><button
             className="rounded-md px-2 pb-1 m-2 bg-orange-900 text-white"
               onClick={() => {
                 setIsLoggedIn(true);
               }}
             >
               Login
-            </button>
+            </button></Link>
           )}
         </li>
       </ul>

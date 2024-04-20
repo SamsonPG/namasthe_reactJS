@@ -17,7 +17,7 @@ console.log(cartItems);
       <div  className="flex justify-between items-center">
       <a href="/" className="flex items-center">
         <img className="w-14 h-14" src={logo} alt="logo" />
-        <span className="font-bold text-2xl">Food Willa</span>
+        <span className="font-bold text-2xl">Food Cart</span>
       </a>
       <ul className="flex items-center ">
         <li className="px-2"><Link to="/">Home</Link></li>
