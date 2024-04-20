@@ -1,7 +1,6 @@
 import { useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
 import { cloudinaryLink } from "../../constant";
-import Shimmer from "./Shimmerui";
+import ShimmerRestaurantMenu from "./Shimmerui";
 import getRestaurantMenu from "../../utils/getRestaurantMenu";
 import { addToCart } from "../../store/cartSlice";
 import { useDispatch } from "react-redux";
@@ -18,8 +17,9 @@ const RestaurantMenu = () => {
   };
 
   return !restaurantMenu || !restaurantName ? (
-    <Shimmer />
+    <ShimmerRestaurantMenu />
   ) : (
+    
     <div className="flex">
       <div className="w-[290px] h-[420px] rounded-lg shadow-lg m-4 p-4 bg-zinc-100">
         <h1>Restaurant id : {resID}</h1>
@@ -92,6 +92,7 @@ const RestaurantMenu = () => {
           ))}
         </div>
       </div>
+      
     </div>
   );
 };
