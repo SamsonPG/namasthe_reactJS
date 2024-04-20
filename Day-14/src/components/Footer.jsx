@@ -40,6 +40,7 @@ const Footer = () => {
           <span className="font-bold mr-4">{user.email}</span>
         </div>
         <span data-testid="online-status">{onlineStatus ? "📶- Online" : "📶- Offline"}</span>
+        <span>Created By Samson P G © FoodCart 2024</span>
       </div>
     </footer>
   );
