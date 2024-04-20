@@ -4,7 +4,7 @@ import { Formik } from 'formik';
 const BasicForm = () => (
 <div className="container mx-auto px-4 flex justify-center pb-8">
   <div className="max-w-md">
-    <h1 className="font-bold text-center my-5">Login</h1>
+    <h1 className="font-bold text-center my-5">Log In</h1>
     <div className="w-96 rounded-lg shadow-lg m-4 p-10 bg-zinc-100 ">
       <Formik
         initialValues={{ email: '', password: '' }}
@@ -68,7 +68,7 @@ const BasicForm = () => (
             <button
               type="submit"
               disabled={isSubmitting}
-              className="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600"
+              className="bg-orange-900 text-white py-2 px-4 rounded hover:bg-blue-600"
             >
               Submit
             </button>

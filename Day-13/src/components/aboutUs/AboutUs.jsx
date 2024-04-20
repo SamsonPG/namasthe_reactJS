@@ -11,7 +11,7 @@ const AboutUs = () => {
 
         <div className="w-3/5 pr-4 flex flex-col justify-center items-center">
           {/* 60% text section */}
-          <h1 className="font-bold m-5">Food Cart</h1>
+          <h1 className="font-bold m-5">FoodCart</h1>
           <p className="text-center">
             Lorem Ipsum is simply dummy text of the printing and typesetting
             industry. Lorem Ipsum has been the industry's standard dummy text

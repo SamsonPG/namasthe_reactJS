@@ -9,7 +9,7 @@ const Header = () => {
     <nav className="navbar">
       <a href="/" style={{ display: "flex", alignItems: "center" }}>
         <img src={logo} alt="logo" />
-        <span>Food Cart</span>
+        <span>FoodCart</span>
       </a>
       <ul>
         <li><Link to="/">Home</Link></li>
@@ -22,7 +22,7 @@ const Header = () => {
                 setIsLoggedIn(false);
               }}
             >
-              Logout
+              Sign In
             </button>
           ) : (
             <button
@@ -30,7 +30,7 @@ const Header = () => {
                 setIsLoggedIn(true);
               }}
             >
-              Login
+              Log In
             </button>
           )}
         </li>

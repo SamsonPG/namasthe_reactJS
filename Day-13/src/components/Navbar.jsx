@@ -17,7 +17,7 @@ console.log(cartItems);
       <div  className="flex justify-between items-center">
       <a href="/" className="flex items-center">
         <img data-testid="logo" className="w-14 h-14" src={logo} alt="logo" />
-        <span className="font-bold text-2xl">Food Cart</span>
+        <span className="font-bold text-2xl">FoodCart</span>
       </a>
       <ul className="flex items-center ">
         <li className="px-2"><Link to="/">Home</Link></li>
@@ -34,7 +34,7 @@ console.log(cartItems);
                 setIsLoggedIn(false);
               }}
             >
-              Logout
+              Sign In
             </button>
           ) : (
             <button
@@ -43,7 +43,7 @@ console.log(cartItems);
                 setIsLoggedIn(true);
               }}
             >
-              Login
+              Log In
             </button>
           )}
         </li>
